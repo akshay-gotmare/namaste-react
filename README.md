@@ -1,6 +1,8 @@
 React sessions => practice
 
-## **_Session 2:_**
+# **_Session 2:_**
+
+[NPM](#npm)
 
 **npx parcel index.html** - For development build
 **npx parcel build index.html** - For Production build
@@ -12,19 +14,19 @@ If error is faced - check pacakge json and remove **main**
 - It makes the process slow as it always call the dependency from the url in cdn
 - It is always preferred to keep the dependencies in the **package.json** via npm install <dependecy_name>
 
-# **NPM**
+## **NPM**
 
 - stands for everything other than "node package manager"
 - It is indeed a package manager but it doen't abbrevate for "node package manager"
 - Check the offiicial npm site there are numerous names but not "Nnode package manager"
 
-# **package.json**
+## **package.json**
 
 - is a **configuration file** for npm
 - keeps track of what version of a package is installed in system
 - command to create - npm init
 
-# **Dependencies**
+## **Dependencies**
 
 - there are 2 types of dependencies
 - 1. Dev dependency
@@ -32,7 +34,7 @@ If error is faced - check pacakge json and remove **main**
 - 2. Normal dependency
   - Also be used into production
 
-# **Bundler** (parcel is used in our project)
+## **Bundler** (parcel is used in our project)
 
 - **_command_** - npm install -D parcel
 
@@ -44,17 +46,17 @@ If error is faced - check pacakge json and remove **main**
 - Bundles your app so it can be shipped to production.
 - _create-react-app_ uses **webpack** as bundler by default behind the scene.
 
-# **meanings**:
+## **meanings**:
 
 - e.g. "parcel": "^2.12.0"
 - ^ (caret) - this means that dependency will automatically upgrade for **minor** updates like from 2.12.0 -> 2.12.3 (minor upgrade) [RECOMMENDED]
 - ~ (tilde) - this means that dependency will automatically upgrade for **major** updates like from 2.12.0 -> 3.0.0 (major upgrade)
 
-# **package-lock.json**:
+## **package-lock.json**:
 
 - keeps track of version of a package and lock it along with its information
 
-# **node-modules**
+## **node-modules**
 
 - has a lot of files
 - why?
@@ -62,13 +64,13 @@ If error is faced - check pacakge json and remove **main**
 - these data is stored in node-modules
 - these are known as **_TRANSITIVE DEPENDENCIES_**
 
-# **NPX**:
+## **NPX**:
 
 - Means _EXECUTE_ a package
 
 **--------------------------------------------------------**
 
-# Miscellaneous:
+## Miscellaneous:
 
 **.gitignore**
 
@@ -84,3 +86,5 @@ If error is faced - check pacakge json and remove **main**
 - Parcel (bundler) - **https://parceljs.org/** -> needs read
   tree shaking and all, etc
 - HMR (Hot Module Replacement/Hot loading) -> needs a read
+
+- Create scripts into pacakge json to run the app (either in dev or production mode) via npm instead of parcel (e.g. _npx parcel index.html_ or _npx parcel build index.html_)
