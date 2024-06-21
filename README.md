@@ -2,7 +2,14 @@ React sessions => practice
 
 # **_Session 2:_**
 
-[NPM](#npm)
+- [NPM](#npm)
+- [package.jso](#packagejson)
+- [package-lock.json](#package-lockjson)
+- [Dependencies](#dependencies)
+- [Bundler (parcel is used in our project)](#bundler-parcel-is-used-in-our-project)
+- [node-modules](#node-modules)
+- [NPX](#npx)
+- [Miscellaneous](#miscellaneous---s02)
 
 **npx parcel index.html** - For development build
 **npx parcel build index.html** - For Production build
@@ -70,7 +77,7 @@ If error is faced - check pacakge json and remove **main**
 
 **--------------------------------------------------------**
 
-## Miscellaneous:
+## Miscellaneous - S02:
 
 **.gitignore**
 
