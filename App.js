@@ -1397,7 +1397,7 @@ const Header = () => {
           <li>Home</li>
           <li>About Us</li>
           <li>Contact US</li>
-          <li>Cart</li>
+          <li>🛒</li>
         </ul>
       </div>
     </div>
@@ -1418,10 +1418,12 @@ const RestaurantCard = (props) => {
           restaurant.info.cloudinaryImageId
         }
       />
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h5>{deliveryTime} mins</h5>
-      <h5>{avgRatingString}</h5>
+      <div className="restaurant-details">
+        <h3>{name}</h3>
+        <h4>{cuisines.join(", ")}</h4>
+        <h5>🕐 Delivery in {deliveryTime} mins</h5>
+        <h5>⭐ Average rated {avgRatingString}</h5>
+      </div>
     </div>
   );
 };
