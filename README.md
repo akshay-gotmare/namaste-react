@@ -1,3 +1,5 @@
+[Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4](#session-4)
+
 # **_Session 1:_**
 
 - React.createElement => _OBJECT_ => ReactDOM.render(_OBJECT_) => html element
@@ -99,10 +101,10 @@ If error is faced - check pacakge json and remove **main**
 
 # **_Session 3:_**
 
-[HTML vs JSX (HTML like syntax)](#html-vs-jsx-html-like-syntax)
-[Functional Component](#functional-component)
-[Component Composition](#component-composition)
-[Miscellaneous - S03](#miscellaneous---s03)
+- [HTML vs JSX (HTML like syntax)](#html-vs-jsx-html-like-syntax)
+- [Functional Component](#functional-component)
+- [Component Composition](#component-composition)
+- [Miscellaneous - S03](#miscellaneous---s03)
 
 ## HTML vs JSX (HTML like syntax):
 
@@ -128,5 +130,23 @@ If error is faced - check pacakge json and remove **main**
 
 **Creating scripts to run app via npm (package.json)**
 
-- Create scripts into pacakge json to run the app (either in dev or production mode) via npm instead of parcel (e.g. _npx parcel index.html_ or _npx parcel build index.html_)
-- _npm run start_ is same as _npm start_ but for other it should be _npm run build_ only
+- Create scripts into pacakge json to run the app (either in dev or production mode) via npm instead of parcel (e.g. `npx parcel index.html` or `npx parcel build index.html`)
+- `npm run start` is same as `npm start` but for other it should be `npm run build` only
+
+# **_Session 4:_**
+
+## Config Driven UI: (Needs read)
+
+## Keys and Index: (JS and React)
+
+- In `map()` it is recommended to use/pass a key or it will throw a warning.
+- It is not acceptable to use `map()` without key
+- It is recommended that the key should be an Unique identifier
+- It not recommended to use index as key (**React docs**)
+
+- ### **_Why Unique Key is needed?_**
+
+  - For performance improvement of React and UI ( Render cycle)
+  - If an unique id is not used as key then while rendering the data on the UI React will re-render the whole set of data as it can't differentiate what has changed
+  - So an unique identifier is always needed
+  - So use index as last resort (still better than not using a key)
