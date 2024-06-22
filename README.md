@@ -1,4 +1,9 @@
-React sessions => practice
+# **_Session 1:_**
+
+- React.createElement => _OBJECT_ => ReactDOM.render(_OBJECT_) => html element
+- React.createElement creates an OBJECT and not an html element
+- This OBJECT when used with ReactDOM.render(OBJECT) converts into html element while render and put into the root element of the DOM
+- If there is any other element present inside root element already, this render element will replace the existing element.
 
 # **_Session 2:_**
 
@@ -73,9 +78,7 @@ If error is faced - check pacakge json and remove **main**
 
 ## **NPX**:
 
-- Means _EXECUTE_ a package
-
-**--------------------------------------------------------**
+- Means **_EXECUTE_** a package
 
 ## Miscellaneous - S02:
 
@@ -89,9 +92,41 @@ If error is faced - check pacakge json and remove **main**
 
 **important links**
 
-- browserslist.dev -> for supported browsers list to be added in package json
+- [browserslist.dev](https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z) -> for supported browsers list to be added in package json
 - Parcel (bundler) - **https://parceljs.org/** -> needs read
   tree shaking and all, etc
 - HMR (Hot Module Replacement/Hot loading) -> needs a read
 
+# **_Session 3:_**
+
+[HTML vs JSX (HTML like syntax)](#html-vs-jsx-html-like-syntax)
+[Functional Component](#functional-component)
+[Component Composition](#component-composition)
+[Miscellaneous - S03](#miscellaneous---s03)
+
+## HTML vs JSX (HTML like syntax):
+
+- JSX is **Javascript syntax extention**
+- It is used for readability and ease of writing code in react
+- React can be written without JSX
+- JSX is not html
+- JSX is html **like** syntax
+
+## Functional Component:
+
+- Function that returns a React Element is Functional Component.
+
+## Component Composition:
+
+- Using a component inside another component is called **Component Composition**
+- e.g. <Title/> and <Heading/> are two different components
+- but inside the <Heading/> we may use the <Title/> component
+
+- like `const Heading = () => { return ( <Title/> );`
+
+## Miscellaneous - S03:
+
+**Creating scripts to run app via npm (package.json)**
+
 - Create scripts into pacakge json to run the app (either in dev or production mode) via npm instead of parcel (e.g. _npx parcel index.html_ or _npx parcel build index.html_)
+- _npm run start_ is same as _npm start_ but for other it should be _npm run build_ only
