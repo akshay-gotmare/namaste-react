@@ -1,4 +1,4 @@
-[Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4](#session-4)
+[Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4](#session-4) | [Session 5](#session-5)
 
 # **_Session 1:_**
 
@@ -89,7 +89,7 @@ If error is faced - check pacakge json and remove **main**
 - put files that shouldn't be pushed to git
 - files like (files regeneratable on host server)
   - node_modules
-  - disc
+  - dist
   - .parcel-cache
 
 **important links**
@@ -150,3 +150,33 @@ If error is faced - check pacakge json and remove **main**
   - If an unique id is not used as key then while rendering the data on the UI React will re-render the whole set of data as it can't differentiate what has changed
   - So an unique identifier is always needed
   - So use index as last resort (still better than not using a key)
+
+  # **_Session 5:_**
+
+  [Named Export](#named-export) | [Default Export](#default-export) | [Virtual DOM](#virtual-dom) | [Reconciliation Algorithm](#reconciliation-algorithmneeds-read-imp)
+
+  ## Named Export:
+
+  - **Mulitple named exports can be exported from a file.**
+
+  - `export const Component=()=>{}`
+  - `export const mockData={}`
+  - `export const CONSTANT="xyz"`
+
+  ## Default Export:
+
+  - Only one Default export can be done per file.
+
+  - `export default Component=()=>{}` , etc.
+
+  ## Virtual DOM:
+
+  - Virtual DOM is javascript representation of Actual DOM. (**Javascript Object**)
+  - Used to differentiate between what has changed and what needs to updated on the real DOM.
+  - There is **Diff Algorithm** used internally for this differentation (e.g. consider it like **git diff**)
+  - The algorithm is also known as **Reconciliation Algorithm** (**React Fibre**)
+
+  ## Reconciliation Algorithm:(needs read IMP)
+
+  > This algorithm compares the previous virtual DOM with new one to determine the most efficient way to Update the actual DOM.
+  > The goal is to make the process as optimised as possible.
