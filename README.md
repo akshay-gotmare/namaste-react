@@ -1,4 +1,4 @@
-[Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4](#session-4) | [Session 5](#session-5)
+[Session 1](#session-1) | [Session 2](#session-2) | [Session 3](#session-3) | [Session 4](#session-4) | [Session 5](#session-5) | [Session_6](#session_6) | [Session_7](#session_7)
 
 # **_Session 1:_**
 
@@ -10,7 +10,7 @@
 # **_Session 2:_**
 
 - [NPM](#npm)
-- [package.jso](#packagejson)
+- [package.json](#packagejson)
 - [package-lock.json](#package-lockjson)
 - [Dependencies](#dependencies)
 - [Bundler (parcel is used in our project)](#bundler-parcel-is-used-in-our-project)
@@ -172,11 +172,57 @@ If error is faced - check pacakge json and remove **main**
   ## Virtual DOM:
 
   - Virtual DOM is javascript representation of Actual DOM. (**Javascript Object**)
-  - Used to differentiate between what has changed and what needs to updated on the real DOM.
+  - Used to differentiate between what has changed and what needs to be updated on the real DOM.
   - There is **Diff Algorithm** used internally for this differentation (e.g. consider it like **git diff**)
   - The algorithm is also known as **Reconciliation Algorithm** (**React Fibre**)
 
   ## Reconciliation Algorithm:(needs read IMP)
 
   > This algorithm compares the previous virtual DOM with new one to determine the most efficient way to Update the actual DOM.
+
   > The goal is to make the process as optimised as possible.
+
+  # **_Session_6:_**
+
+  ## Rendering:
+
+  # **_Session_7:_**
+
+  [Routing](#routing) | [useRouteError](#userouteerror)
+
+  ## Routing:
+
+  - Use **React-router-dom** for routing
+  - `npm i react-router-dom`
+  - Create routing as follows:
+  - `const appRouter = createBrowserRouter([`
+    `{`
+    `path: "/",`
+    `element: <AppLayout />,`
+    `},`
+    `{`
+    `path: "/about",`
+    `element: <About />,`
+    `},`
+    `{`
+    `path: "/contact",`
+    `element: <Contact />,`
+    `},`
+    `]);`
+  - Reder as follows: (**_RouterProvider needs to be imported_**)
+    `root.render(<RouterProvider router={appRouter} />);`
+
+    - Encolsed inside `<RouterProvider/>` and with `router={}` as a prop
+
+  - **React-router-dom** also provides way to provide error pages
+  - Need to use the `errorElement` over the path where the error needs to be displayed
+    `{`
+    `path: "/",`
+    `element: <AppLayout />,`
+    `errorElement: <Error />,`
+    `},`
+  - Also can provide details of the error using **useRouteError** hook
+
+  ## useRouteError:
+
+  - `const err = useRouteError();`
