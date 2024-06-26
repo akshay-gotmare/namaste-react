@@ -186,9 +186,13 @@ If error is faced - check pacakge json and remove **main**
 
   ## Rendering:
 
+  ## Shimmer Component:
+
+  - Preloading a dummy skeletal structure with no data for better UX
+
   # **_Session_7:_**
 
-  [Routing](#routing) | [useRouteError](#userouteerror)
+  [Routing](#routing) | [useRouteError](#userouteerror) | [<Outlet />](#outlet-)
 
   ## Routing:
 
@@ -226,3 +230,15 @@ If error is faced - check pacakge json and remove **main**
   ## useRouteError:
 
   - `const err = useRouteError();`
+
+  ## `<Outlet />`:
+
+  - Used for routing **children** of the main page
+  - For e.g., in case we need to have the **same header and footer** and just change the body according to need (like main data on `localhost:0000/`, about page on `localhost:0000/about` , etc).
+
+  ## 2 Types of Routing:
+
+  - **Client Side Routing:**
+    - No need to fetch a new page, instead just change in component used.
+  - **Server Side Routing:**
+    - Altogether a completely new html page is fetched and the whole page needs to be reloaded
