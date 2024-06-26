@@ -192,7 +192,7 @@ If error is faced - check pacakge json and remove **main**
 
   # **_Session_7:_**
 
-  [Routing](#routing) | [useRouteError](#userouteerror) | [<Outlet />](#outlet)
+  [Routing](#routing) | [useRouteError](#userouteerror) | [Outlet](#outlet)
 
   ## Routing:
 
