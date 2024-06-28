@@ -2,31 +2,16 @@ import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-// import resData from "../utils/mockData";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
-  //   const [RestaurantList, setRestaurantList] = useState(resData);
-  const [restaurantList, setRestaurantList] = useState([]);
-  const [searchedRestaurant, setSearchedRestaurant] = useState([]);
+  const restaurantList = useRestaurantList();
+  const [searchedRestaurantList, setSearchedRestaurant] = useState([]);
+
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    const json = await data.json();
-
-    console.log(json);
-    setRestaurantList(
-      // Optional Chaining
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    setSearchedRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-  };
+    const data = restaurantList;
+    setSearchedRestaurant(data);
+  }, [restaurantList]);
 
   if (restaurantList.length === 0) {
     return (
@@ -47,11 +32,11 @@ const Body = () => {
   }
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex p-3 justify-center">
+        <div className="mx-5">
           <input
             type="text"
-            className="search-box"
+            className="bg-slate-200 hover:bg-stone-300 mx-5 w-80 h-10 pl-6 pr-2 rounded-lg"
             onChange={(e) => {
               console.log(e.target.value);
               const filteredList = restaurantList.filter((item) =>
@@ -61,23 +46,24 @@ const Body = () => {
               );
               setSearchedRestaurant(filteredList);
             }}
+            placeholder="Search"
           />
-          <button className="search-btn">Search</button>
+          {/* <button className="search-btn">Search</button> */}
         </div>
         <button
-          className="filter-btn"
+          className="filter-btn mx-5 w-48 h-9 border border-solid hover:border hover:bg-black hover:text-white shadow-md"
           onClick={() => {
             const filteredList = restaurantList.filter(
               (res) => res.info.avgRating > 4
             );
-            setRestaurantList(filteredList);
+            setSearchedRestaurant(filteredList);
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
-      <div className="restaurant-container">
-        {searchedRestaurant.map((item) => (
+      <div className="flex flex-wrap justify-center">
+        {searchedRestaurantList.map((item) => (
           <Link to={`/restaurant/${item.info.id}`} key={item.info.id}>
             <RestaurantCard restaurant={item} />
           </Link>

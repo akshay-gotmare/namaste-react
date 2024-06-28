@@ -4,5 +4,8 @@ export const CDN_URL =
 export const LOGO_URL =
   "https://logopond.com/logos/159a3c3f98abee7cd95c0b0d6407641a.png";
 
+export const RESTAURANT_LIST =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.61610&lng=73.72860&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 export const RESTAURANT_MENU =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.61610&lng=73.72860&restaurantId=";
