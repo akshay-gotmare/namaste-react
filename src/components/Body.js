@@ -51,7 +51,7 @@ const Body = () => {
           {/* <button className="search-btn">Search</button> */}
         </div>
         <button
-          className="filter-btn mx-5 w-48 h-9 border border-solid hover:border hover:bg-black hover:text-white shadow-md"
+          className="filter-btn mx-5 w-48 h-9 border border-solid hover:border hover:bg-black hover:text-white shadow-md truncate"
           onClick={() => {
             const filteredList = restaurantList.filter(
               (res) => res.info.avgRating > 4
