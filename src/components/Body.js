@@ -12,7 +12,7 @@ const Body = () => {
     const data = restaurantList;
     setSearchedRestaurant(data);
   }, [restaurantList]);
-
+  console.log(restaurantList);
   if (restaurantList.length === 0) {
     return (
       <div className="shimmer-container">

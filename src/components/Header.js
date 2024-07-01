@@ -1,12 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "./UserContext";
+import { useDispatch, useSelector } from "react-redux";
+import store from "./store";
+import { addItem } from "./cartSlice";
 
 const Header = () => {
   const [logStatus, setLogStatus] = useState("login");
   const onlineStatus = useOnlineStatus();
   console.log("live : ", onlineStatus);
+
+  const data = useContext(UserContext);
+  const dispatch = useDispatch();
+
+  const items = useSelector((state) => state.cart.items);
+  console.log("Store list: ", items);
 
   return (
     <div className="flex rounded-md justify-between bg-pink-100 shadow-lg m-2">
@@ -27,23 +37,28 @@ const Header = () => {
           <li className="px-4">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li className="px-4">🛒</li>
+          <li className="px-4">
+            <Link to="/cart">🛒({items.length} items)</Link>
+          </li>
           <li className="px-4">{onlineStatus ? "🟢Online" : "🔴Offline"}</li>
         </ul>
-        <button
-          className={
-            logStatus === "login"
-              ? "bg-green-500 mr-2 w-20 h-10 rounded-md hover:bg-green-600"
-              : "bg-red-500 mr-2 w-20 h-10 rounded-md hover:bg-red-600"
-          }
-          onClick={() => {
-            logStatus === "login"
-              ? setLogStatus("logout")
-              : setLogStatus("login");
-          }}
-        >
-          {logStatus}
-        </button>
+        <div>
+          <button
+            className={
+              logStatus === "login"
+                ? "bg-green-500 mr-2 w-20 h-10 rounded-md hover:bg-green-600"
+                : "bg-red-500 mr-2 w-20 h-10 rounded-md hover:bg-red-600"
+            }
+            onClick={() => {
+              logStatus === "login"
+                ? setLogStatus("logout")
+                : setLogStatus("login");
+            }}
+          >
+            {logStatus}
+          </button>
+          <p className="mr-2">{data.loggedInUser}</p>
+        </div>
       </div>
     </div>
   );

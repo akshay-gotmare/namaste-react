@@ -244,3 +244,62 @@ If error is faced - check pacakge json and remove **main**
     - No need to fetch a new page, instead just change in component used.
   - **Server Side Routing:**
     - Altogether a completely new html page is fetched and the whole page needs to be reloaded
+
+  # **_Session_11:_**
+
+  ## Context
+
+  - Create a context file and create acontext inside the file.
+  - `const Context = createContext({item1:"Dummy data"});`
+  - Context is an object
+
+  - To access this Context data we need to use,
+    - `useContext()` hook e.g. `const contextData = useContext(Context Name);`
+  - To Provide this context data to the Components we need to use the following as a **wrapper**,
+    - `<ContextName.Provider value={{ loggedInUser: userName, setUserName }}>`
+      -For class based components we need to explicitly **Consume** the context insode the wrapped components.
+    - e.g. `<MyContext.Provider value={this.state.value}><MyComponent /></MyContext.Provider>`
+    - then `<MyContext.Consumer>{value => <div>{value}</div>}</MyContext.Consumer>`
+    -
+
+  # **_Session_12:_**
+
+  ## **Redux** installation and dependencies:
+
+  - Install @reduxjs/toolkit and react-redux
+  - Build our store
+  - Connect our store to our app
+  - Slice (cardSlice)
+  - **Dispatch(action)**
+  - Read Data using **Selector**
+
+  ## Store Slice:
+
+- Create a **slice**
+- **_Slice_** is a portion of Redux store for particular pusrpose
+- e.g. **Cart**Slice, **counter**Slice, **wishlist**Slice, etc
+
+- Create a slice using `{CreateSlice}` hook from `@reduxjs/toolkit` aka RTK.
+- `const cartSlice = createSlice({ name : 'cart', initialState:{items:[]}, reducers:{addIem:(state,action)=>state.items.push(action.payload)}, });`
+- `export const {addItem, removeItem, clearCart}=cartSlice.actions;`
+- `export default cartSlice.reducer;`
+
+- Consists of,
+
+  - **name:** - name of the slice
+  - **initialState:** (object) - contains initial state of items like counter value, items array, etc.
+  - **reducers:** (object) - contains functions for the actions
+    - e.g. if `addItem` : `{(state, action)=> state.items.push(action.payload)}`
+
+- Export these "_actions_" as `export const {addItem, removeItem} = cartSlice.actions`
+  -Export the slice as `export default cartSlice.reducer;`
+
+- Create **store** with `const store = configureStore({cart: cartReducer});` where `cartReducer` is, `import cartReducer from './cartSlice';`
+
+- Provide the store to the Component as **wrapper** `<Provider store={store}><Component /><Provider />`
+
+- **Subscribe** the component to the store with `const storeData = useSubscribe(store=>store.cart.items);`
+
+- **Dispatch** actions from the events if needed through `useDispatch()`.
+- e.g. `<button onClick={()=>dispatch(addItem("sandwich"))}>Add +</button>`
+- where `import {addItem, removeItem} from './cardSlice';'`
